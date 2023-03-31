@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Biaya Parkir</string>
+    <string name="appHeading" />
+    <string name="textRes">0</string>
+    <string name="output">Silahkan Masukkan Total Jam Parkir Diatas</string>
+    <string name="motor">Pilih Jenis Kendaraan</string>
+    <string name="inputJamParkir"><u>Masukkan Total Jam Parkir Disini</u></string>
+    <string name="iconDescription">Background Merah yang berada diatas hingga tengah</string>
+    <string name="bgDescription">Arrow putih yang jika di klik akan menampilkan pilihan jenis kendaraan</string>
+</resources>
