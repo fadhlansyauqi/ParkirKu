@@ -1,6 +1,5 @@
 package org.d3if3049.mobpro1.parkirku
 
-import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,35 +8,32 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
+import org.d3if3049.mobpro1.parkirku.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    //    Declaring Views
     private lateinit var selectedUnitLayout:LinearLayout
     private lateinit var selectedUnitText: TextView
     private lateinit var editInput:EditText
     private lateinit var textResult:TextView
     private lateinit var resultTypeText:TextView
-
-    //    Input type
     private lateinit var selectedUnit:String
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-//        Initializing Views
-        selectedUnitLayout = findViewById(R.id.selectType)
-        selectedUnitText = findViewById(R.id.textSelect)
-        editInput = findViewById(R.id.editInput)
-        textResult = findViewById(R.id.textResult)
-        resultTypeText = findViewById(R.id.textResultType)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
-//        By Default Fahrenheit is input unit
+        selectedUnitLayout = binding.selectType
+        selectedUnitText = binding.textSelect
+        editInput = binding.editInput
+        textResult = binding.textResult
+        resultTypeText = binding.textResultType
+
         selectedUnit = "Motor"
 
-//        Setting alert dialog to appear for selection of input unit
         selectedUnitLayout.setOnClickListener {
             showAlertDialog()
         }
@@ -49,20 +45,18 @@ class MainActivity : AppCompatActivity() {
 
 
             if (inputVal.isNotEmpty()) {
-                val input = inputVal.toInt() //To convert string to double for calculations
-//                Taking Decision As per current input type
+                val input = inputVal.toInt()
                 if(selectedUnit == "Motor"){
                     resultText = input * 2000
 
                     resultTypeText.text = "Total Biaya Parkir Motor Anda Adalah:"
                 }else{
-                    //(0°C × 9/5) + 32
                     resultText = input * 5000
 
                     resultTypeText.text = "Total Biaya Parkir Mobil Anda Adalah:"
                 }
 
-                textResult.text = "Rp " + resultText.toString()
+                textResult.text = "Rp $resultText"
             }
 
 
@@ -72,20 +66,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun showAlertDialog() {
         val alertDialog:AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
-        alertDialog.setTitle("Pilih Jenis Kendaraan") //setting title of alert dialog
-        val items= arrayOf("Motor", "Mobil") //options in alert dialog
-        val checkedItem = -1 //no item by default selected
+        alertDialog.setTitle("Pilih Jenis Kendaraan")
+        val items= arrayOf("Motor", "Mobil")
+        val checkedItem = -1
 
-        alertDialog.setSingleChoiceItems(items,checkedItem,
-            { _, which ->
-                selectedUnit = items[which] //which user has selected
-                selectedUnitText.setText(selectedUnit)
-            })
+        alertDialog.setSingleChoiceItems(items,checkedItem
+        ) { _, which ->
+            selectedUnit = items[which]
+            selectedUnitText.text = selectedUnit
+        }
 
-        val positiveButton = alertDialog.setPositiveButton(android.R.string.ok,
-            DialogInterface.OnClickListener() { dialog, which ->
-                dialog.dismiss()
-            })
+        alertDialog.setPositiveButton(android.R.string.ok
+        ) { dialog, _ ->
+            dialog.dismiss()
+        }
 
         val alert:AlertDialog = alertDialog.create()
         alert.setCanceledOnTouchOutside(false)
