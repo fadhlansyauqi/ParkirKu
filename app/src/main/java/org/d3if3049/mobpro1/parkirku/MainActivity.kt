@@ -12,65 +12,56 @@ import org.d3if3049.mobpro1.parkirku.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var selectedUnitLayout:LinearLayout
+    private lateinit var selectedUnitLayout: LinearLayout
     private lateinit var selectedUnitText: TextView
-    private lateinit var selectedUnit:String
+    private lateinit var selectedUnit: String
     private lateinit var binding: ActivityMainBinding
-       override fun onCreate(savedInstanceState: Bundle?) {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         selectedUnitLayout = binding.selectType
         selectedUnitText = binding.textSelect
         val editInput = binding.editInput
         val resultTypeText = binding.textResultType
 
-
+        selectedUnit = ""
 
         selectedUnitLayout.setOnClickListener {
             showAlertDialog()
-
         }
 
-        editInput.addTextChangedListener{
+        editInput.addTextChangedListener {
             val resultText: Int
             val inputVal = editInput.text.toString()
-
-
 
             if (inputVal.isNotEmpty()) {
                 val input = inputVal.toInt()
 
-                    if (selectedUnit == "Motor") {
-                        resultText = input * 2000
-                        resultTypeText.text = "Total Biaya Parkir Motor Anda Adalah:"
-                    } else {
-                        resultText = input * 5000
+                if (selectedUnit == "Motor") {
+                    resultText = input * 2000
+                    binding.textResult.text = "Rp $resultText"
+                    resultTypeText.text = "Total Biaya Parkir Motor Anda Adalah:"
+                } else {
+                    resultText = input * 5000
+                    binding.textResult.text = "Rp $resultText"
+                    resultTypeText.text = "Total Biaya Parkir Mobil Anda Adalah:"
+                }
 
-                        resultTypeText.text = "Total Biaya Parkir Mobil Anda Adalah:"
-                    }
-                binding.textResult.text = "Rp $resultText"
-                    Toast.makeText(applicationContext,"Biaya Parkir Ditampilkan",Toast.LENGTH_SHORT).show()
-
-
+                Toast.makeText(applicationContext, "Biaya Parkir Ditampilkan", Toast.LENGTH_SHORT).show()
             }
-
-
-
-
         }
-
     }
 
     private fun showAlertDialog() {
-        val alertDialog:AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
+        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
         alertDialog.setTitle("Pilih Jenis Kendaraan")
-        val items= arrayOf("Motor", "Mobil")
+        val items = arrayOf("Motor", "Mobil")
         val checkedItem = -1
 
-        alertDialog.setSingleChoiceItems(items,checkedItem
+        alertDialog.setSingleChoiceItems(items, checkedItem
         ) { _, which ->
             selectedUnit = items[which]
             selectedUnitText.text = selectedUnit
@@ -82,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
-        val alert:AlertDialog = alertDialog.create()
+        val alert: AlertDialog = alertDialog.create()
         alert.setCanceledOnTouchOutside(false)
         alert.show()
     }
