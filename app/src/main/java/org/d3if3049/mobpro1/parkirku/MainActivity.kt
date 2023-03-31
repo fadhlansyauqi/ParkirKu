@@ -2,10 +2,11 @@ package org.d3if3049.mobpro1.parkirku
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import org.d3if3049.mobpro1.parkirku.databinding.ActivityMainBinding
 
@@ -13,13 +14,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var selectedUnitLayout:LinearLayout
     private lateinit var selectedUnitText: TextView
-    private lateinit var editInput:EditText
-    private lateinit var textResult:TextView
-    private lateinit var resultTypeText:TextView
     private lateinit var selectedUnit:String
     private lateinit var binding: ActivityMainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+       override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -27,34 +24,40 @@ class MainActivity : AppCompatActivity() {
 
         selectedUnitLayout = binding.selectType
         selectedUnitText = binding.textSelect
-        editInput = binding.editInput
-        textResult = binding.textResult
-        resultTypeText = binding.textResultType
+        val editInput = binding.editInput
+        val resultTypeText = binding.textResultType
 
-        selectedUnit = "Motor"
+
 
         selectedUnitLayout.setOnClickListener {
             showAlertDialog()
+
         }
 
         editInput.addTextChangedListener{
             val resultText: Int
             val inputVal = editInput.text.toString()
 
+
+
             if (inputVal.isNotEmpty()) {
                 val input = inputVal.toInt()
-                if(selectedUnit == "Motor"){
-                    resultText = input * 2000
 
-                    resultTypeText.text = "Total Biaya Parkir Motor Anda Adalah:"
-                }else{
-                    resultText = input * 5000
+                    if (selectedUnit == "Motor") {
+                        resultText = input * 2000
+                        resultTypeText.text = "Total Biaya Parkir Motor Anda Adalah:"
+                    } else {
+                        resultText = input * 5000
 
-                    resultTypeText.text = "Total Biaya Parkir Mobil Anda Adalah:"
-                }
+                        resultTypeText.text = "Total Biaya Parkir Mobil Anda Adalah:"
+                    }
+                binding.textResult.text = "Rp $resultText"
+                    Toast.makeText(applicationContext,"Biaya Parkir Ditampilkan",Toast.LENGTH_SHORT).show()
 
-                textResult.text = "Rp $resultText"
+
             }
+
+
 
 
         }
@@ -71,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         ) { _, which ->
             selectedUnit = items[which]
             selectedUnitText.text = selectedUnit
+            binding.editInput.isVisible = true
         }
 
         alertDialog.setPositiveButton(android.R.string.ok
