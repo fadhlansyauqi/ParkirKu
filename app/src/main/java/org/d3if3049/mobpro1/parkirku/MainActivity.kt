@@ -39,10 +39,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         editInput.addTextChangedListener{
-            Log.INFO
             val resultText: Int
             val inputVal = editInput.text.toString()
-
 
             if (inputVal.isNotEmpty()) {
                 val input = inputVal.toInt()
