@@ -2,6 +2,7 @@ package org.d3if3049.mobpro1.parkirku
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -24,8 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         selectedUnitLayout = binding.selectType
         selectedUnitText = binding.textSelect
-        val editInput = binding.editInput
-        val resultTypeText = binding.textResultType
+
+//        val resultTypeText = binding.textResultType
+
+
 
         selectedUnit = ""
 
@@ -33,28 +36,36 @@ class MainActivity : AppCompatActivity() {
             showAlertDialog()
         }
 
-        editInput.addTextChangedListener {
-            val resultText: Int
-            val inputVal = editInput.text.toString()
 
-            if (inputVal.isNotEmpty()) {
-                val input = inputVal.toInt()
+        binding.buttonHitungBiaya.setOnClickListener { hitungParkir() }
+    }
+
+    private fun hitungParkir(){
+        val editInput = binding.editInput.text.toString()
+
+            if (TextUtils.isEmpty(editInput)) {
+                Toast.makeText(this, R.string.alertInputKosong, Toast.LENGTH_LONG ).show()
+                return
+            }
+            if (editInput.isNotEmpty()) {
+                val input = editInput.toInt()
 
                 if (selectedUnit == "Motor") {
-                    resultText = input * 2000
-                    binding.textResult.text = "Rp $resultText"
-                    resultTypeText.text = "Total Biaya Parkir Motor Anda Adalah:"
+                    val hasil = input * 2000
+                    binding.textResult.text = "Rp $hasil"
+                    binding.textResultType.text = "Total Biaya Parkir Motor Anda Adalah:"
                 } else {
-                    resultText = input * 5000
-                    binding.textResult.text = "Rp $resultText"
-                    resultTypeText.text = "Total Biaya Parkir Mobil Anda Adalah:"
+                    val hasil = input * 5000
+                    binding.textResult.text = "Rp $hasil"
+                    binding.textResultType.text = "Total Biaya Parkir Mobil Anda Adalah:"
                 }
 
                 Toast.makeText(applicationContext, "Biaya Parkir Ditampilkan", Toast.LENGTH_SHORT).show()
             }
-        }
-    }
 
+
+
+    }
     private fun showAlertDialog() {
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
         alertDialog.setTitle("Pilih Jenis Kendaraan")

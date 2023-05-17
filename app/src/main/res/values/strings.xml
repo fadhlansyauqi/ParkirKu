@@ -2,9 +2,11 @@
     <string name="app_name">ParkirKu</string>
     <string name="appHeading" />
     <string name="textRes">Rp 0</string>
-    <string name="output">Silahkan Pilih Jenis Kendaraan, Masukkan Total Jam Parkir</string>
+    <string name="output">Silahkan Pilih Jenis Kendaraan, \n Masukkan Total Jam Parkir</string>
     <string name="motor">Pilih Jenis Kendaraan</string>
-    <string name="inputJamParkir"><u>Masukkan Total Jam</u></string>
+    <string name="inputJamParkir">Masukkan Total Jam</string>
     <string name="iconDescription">Background Merah yang berada diatas hingga tengah</string>
     <string name="bgDescription">Arrow putih yang jika di klik akan menampilkan pilihan jenis kendaraan</string>
+    <string name="buttonHitungBiaya">Hitung Biaya</string>
+    <string name="alertInputKosong">Silahkan Isi Jam Parkir Anda!</string>
 </resources>
