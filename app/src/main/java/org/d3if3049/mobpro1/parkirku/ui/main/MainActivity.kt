@@ -1,17 +1,24 @@
 package org.d3if3049.mobpro1.parkirku.ui.main
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import org.d3if3049.mobpro1.parkirku.R
 import org.d3if3049.mobpro1.parkirku.databinding.ActivityMainBinding
+import org.d3if3049.mobpro1.parkirku.model.History
 import org.d3if3049.mobpro1.parkirku.ui.info.InfoActivity
+import java.sql.Timestamp
+import java.time.Instant
+import java.time.format.DateTimeFormatter
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +26,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var selectedUnitText: TextView
     private lateinit var selectedUnit: String
     private lateinit var binding: ActivityMainBinding
+    private var hasil: Int = 0
+    private var currentId: Int = 0
+    private val viewModel: ViewModelMain by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,19 +37,15 @@ class MainActivity : AppCompatActivity() {
 
         selectedUnitLayout = binding.selectType
         selectedUnitText = binding.textSelect
-
-//        val resultTypeText = binding.textResultType
-
-
-
         selectedUnit = ""
 
         selectedUnitLayout.setOnClickListener {
             showAlertDialog()
         }
 
-
-        binding.buttonHitungBiaya.setOnClickListener { hitungParkir() }
+        binding.buttonHitungBiaya.setOnClickListener {
+            hitungParkir()
+        }
 
         binding.imageViewInfoApp.setOnClickListener {
             // ganti intent ke info fragment. jangan ke activity
@@ -61,20 +67,33 @@ class MainActivity : AppCompatActivity() {
                 val input = editInput.toInt()
 
                 if (selectedUnit == "Motor") {
-                    val hasil = input * 2000
+                    hasil = input * 2000
                     binding.textResult.text = "Rp $hasil"
                     binding.textResultType.text = "Total Biaya Parkir Motor Anda Adalah:"
                 } else {
-                    val hasil = input * 5000
+                    hasil = input * 5000
                     binding.textResult.text = "Rp $hasil"
                     binding.textResultType.text = "Total Biaya Parkir Mobil Anda Adalah:"
                 }
+
+                val date = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    DateTimeFormatter.ISO_LOCAL_DATE.format(Instant.now())
+                } else {
+                    null
+                }
+
+                val history = History(generateId(), selectedUnit, editInput.toInt(), hasil, date!!, true)
+                viewModel.insertHistory(history)
 
                 Toast.makeText(applicationContext, "Biaya Parkir Ditampilkan", Toast.LENGTH_SHORT).show()
             }
 
 
 
+    }
+
+    private fun generateId(): Int {
+        return currentId++
     }
     private fun showAlertDialog() {
         val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
