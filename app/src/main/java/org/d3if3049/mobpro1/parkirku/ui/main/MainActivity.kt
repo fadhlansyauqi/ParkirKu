@@ -1,7 +1,6 @@
-package org.d3if3049.mobpro1.parkirku
+package org.d3if3049.mobpro1.parkirku.ui.main
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,8 +9,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
+import org.d3if3049.mobpro1.parkirku.R
 import org.d3if3049.mobpro1.parkirku.databinding.ActivityMainBinding
+import org.d3if3049.mobpro1.parkirku.ui.info.InfoActivity
 
 class MainActivity : AppCompatActivity() {
 
