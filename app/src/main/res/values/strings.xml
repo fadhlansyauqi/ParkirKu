@@ -15,4 +15,7 @@
     <string name="aboutParkirKu">About ParkirKu</string>
     <string name="saranOrKritik">Punya saran atau kritik?</string>
     <string name="buttonKirimEmail">Beritahu Kami!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error">Error</string>
 </resources>

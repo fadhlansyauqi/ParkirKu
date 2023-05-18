@@ -6,6 +6,9 @@ import java.sql.Timestamp
 
 @Entity(tableName = "history")
 data class History(
+    @field:Json(name = "id")
+    val id: Int,
+
     @field:Json(name="jenisKendaraan")
     val jenisKendaraan:String,
 
@@ -16,5 +19,8 @@ data class History(
     val biayaParkir:Int,
 
     @field:Json(name="tanggal")
-    val tanggal:Timestamp
+    val tanggal:Timestamp,
+
+    @field:Json(name = "isFavorite")
+    var isHistory:Boolean
 )

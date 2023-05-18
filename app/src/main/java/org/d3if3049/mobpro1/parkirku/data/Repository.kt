@@ -17,7 +17,6 @@ class Repository(application: Application) {
 
     suspend fun getAllHistory(): LiveData<List<History>> {
         val listHistory = MutableLiveData<List<History>>()
-        listHistory.postValue(null)
 
         if (dao.getAllHistory().isEmpty())listHistory.postValue((null))
         else listHistory.postValue(dao.getAllHistory())

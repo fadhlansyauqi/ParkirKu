@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonHitungBiaya.setOnClickListener { hitungParkir() }
 
         binding.imageViewInfoApp.setOnClickListener {
+            // ganti intent ke info fragment. jangan ke activity
             startActivity(
                 Intent(this, InfoActivity::class.java)
             )
