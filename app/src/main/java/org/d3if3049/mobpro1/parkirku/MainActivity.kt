@@ -1,6 +1,7 @@
 package org.d3if3049.mobpro1.parkirku
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                 Intent(this, InfoActivity::class.java)
             )
         }
+
     }
 
     private fun hitungParkir(){
