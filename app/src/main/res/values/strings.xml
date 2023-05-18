@@ -9,4 +9,10 @@
     <string name="bgDescription">Arrow putih yang jika di klik akan menampilkan pilihan jenis kendaraan</string>
     <string name="buttonHitungBiaya">Hitung Biaya</string>
     <string name="alertInputKosong">Silahkan Isi Jam Parkir Anda!</string>
+    <string name="buttonScanQr">Scan QR</string>
+    <string name="deskripsiApp">ParkirKu merupakan aplikasi untuk melakukan pengecekan biaya parkir. Aplikasi ini dibuat untuk memenuhi asesmen mata kuliah mobile programming 1</string>
+    <string name="infoDeveloper">Dibuat oleh: \n Muhammad Fadhlan Sya\'uqi \n D3 RPLA 4501 \n 6706213049</string>
+    <string name="aboutParkirKu">About ParkirKu</string>
+    <string name="saranOrKritik">Punya saran atau kritik?</string>
+    <string name="buttonKirimEmail">Beritahu Kami!</string>
 </resources>

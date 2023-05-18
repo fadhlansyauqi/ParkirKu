@@ -1,5 +1,6 @@
 package org.d3if3049.mobpro1.parkirku
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -38,6 +39,12 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.buttonHitungBiaya.setOnClickListener { hitungParkir() }
+
+        binding.imageViewInfoApp.setOnClickListener {
+            startActivity(
+                Intent(this, InfoActivity::class.java)
+            )
+        }
     }
 
     private fun hitungParkir(){
