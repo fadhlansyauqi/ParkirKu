@@ -11,11 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkirKu"
         tools:targetApi="31">
+
         <activity
-            android:name=".ui.info.InfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

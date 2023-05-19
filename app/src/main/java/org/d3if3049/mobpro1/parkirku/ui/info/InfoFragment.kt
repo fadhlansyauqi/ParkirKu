@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import org.d3if3049.mobpro1.parkirku.R
 import org.d3if3049.mobpro1.parkirku.databinding.FragmentInfoBinding
 
@@ -27,8 +28,7 @@ class InfoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.backButton.setOnClickListener {
-            // fix back button
-//            onBackPressedDispatcher.onBackPressed()
+            it.findNavController().navigate(R.id.action_infoFragment_to_mainFragment)
         }
 
         binding.imageViewInstagram.setOnClickListener {
@@ -36,7 +36,7 @@ class InfoFragment : Fragment() {
                 Intent(
                     Intent.ACTION_VIEW,
                     Uri.parse("https://www.instagram.com/fadhlansyauqi/")
-                ).setPackage("com.instagram.android")
+                )
             )
         }
 
