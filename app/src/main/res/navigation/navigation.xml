@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="org.d3if3049.mobpro1.parkirku.ui.main.MainFragment"
+        android:name="org.d3if3049.mobpro1.parkirku.factory.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action

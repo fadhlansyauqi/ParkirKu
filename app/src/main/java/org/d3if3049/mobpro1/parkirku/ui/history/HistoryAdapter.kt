@@ -1,15 +1,28 @@
-package org.d3if3049.mobpro1.parkirku.ui
+package org.d3if3049.mobpro1.parkirku.ui.history
 
+import android.content.Context
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.d3if3049.mobpro1.parkirku.R
 import org.d3if3049.mobpro1.parkirku.databinding.ItemHistoryBinding
 import org.d3if3049.mobpro1.parkirku.model.History
-import org.d3if3049.mobpro1.parkirku.ui.history.ViewModelHistory
+import kotlin.coroutines.coroutineContext
 
-class HistoryAdapter(val viewModel: ViewModelHistory): ListAdapter<History, HistoryAdapter.ViewHolder>(DIFF_UTIL) {
+class HistoryAdapter(val viewModel: ViewModelHistory) :
+    ListAdapter<History, HistoryAdapter.ViewHolder>(
+        DIFF_UTIL
+    ) {
 
     companion object {
         private val DIFF_UTIL = object : DiffUtil.ItemCallback<History>() {
@@ -24,10 +37,11 @@ class HistoryAdapter(val viewModel: ViewModelHistory): ListAdapter<History, Hist
         }
     }
 
-    inner class ViewHolder(private val binding: ItemHistoryBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemHistoryBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(history: History) {
             binding.apply {
-                tanggal.text = history.tanggal.toString()
+                tanggal.text = history.tanggal
                 biayaParkir.text = history.biayaParkir.toString()
                 durasiParkir.text = history.durasiParkir.toString()
                 jenisKendaraan.text = history.jenisKendaraan
@@ -35,13 +49,16 @@ class HistoryAdapter(val viewModel: ViewModelHistory): ListAdapter<History, Hist
                 buttonDelete.setOnClickListener {
                     if (history.isHistory) {
                         history.isHistory = false
-                        viewModel.deleteHistory(history)
+                        CoroutineScope(Dispatchers.IO).launch {
+                            viewModel.deleteHistory(history)
+                        }
                     }
                 }
             }
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryAdapter.ViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             ItemHistoryBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -51,7 +68,7 @@ class HistoryAdapter(val viewModel: ViewModelHistory): ListAdapter<History, Hist
         )
     }
 
-    override fun onBindViewHolder(holder: HistoryAdapter.ViewHolder, position: Int) = with(holder) {
-        bind(getItem(position))
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 }

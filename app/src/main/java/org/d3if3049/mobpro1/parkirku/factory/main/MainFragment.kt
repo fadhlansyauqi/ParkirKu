@@ -1,4 +1,4 @@
-package org.d3if3049.mobpro1.parkirku.ui.main
+package org.d3if3049.mobpro1.parkirku.factory.main
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -13,8 +13,18 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.d3if3049.mobpro1.parkirku.R
 import org.d3if3049.mobpro1.parkirku.databinding.FragmentMainBinding
+import org.d3if3049.mobpro1.parkirku.factory.ViewModelFactory
+import org.d3if3049.mobpro1.parkirku.model.History
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Date
+import java.util.Locale
 
 class MainFragment : Fragment() {
 
@@ -24,7 +34,10 @@ class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
     private var hasil: Int = 0
     private var currentId: Int = 0
-    private val viewModel: ViewModelMain by viewModels()
+    private lateinit var factory: ViewModelFactory
+    private val viewModel: ViewModelMain by viewModels {
+        factory
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,11 +45,11 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMainBinding.inflate(layoutInflater, container, false)
+        factory = ViewModelFactory(requireActivity().application)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         selectedUnitLayout = binding.selectType
         selectedUnitText = binding.textSelect
         selectedUnit = ""
@@ -93,6 +106,7 @@ class MainFragment : Fragment() {
             Toast.makeText(context, R.string.alertInputKosong, Toast.LENGTH_LONG).show()
             return
         }
+
         if (editInput.isNotEmpty()) {
             val input = editInput.toInt()
 
@@ -106,14 +120,13 @@ class MainFragment : Fragment() {
                 binding.textResultType.text = "Total Biaya Parkir Mobil Anda Adalah:"
             }
 
-//                val date = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//                    DateTimeFormatter.ISO_LOCAL_DATE.format(Instant.now())
-//                } else {
-//                    null
-//                }
-//
-//                val history = History(generateId(), selectedUnit, editInput.toInt(), hasil, date!!, true)
-//                viewModel.insertHistory(history)
+            val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val date = sdf.format(Date())
+
+            val history = History(generateId(), selectedUnit, editInput.toInt(), hasil, date, true)
+            CoroutineScope(Dispatchers.IO).launch {
+                viewModel.insertHistory(history)
+            }
 
             Toast.makeText(context, "Biaya Parkir Ditampilkan", Toast.LENGTH_SHORT).show()
         }
