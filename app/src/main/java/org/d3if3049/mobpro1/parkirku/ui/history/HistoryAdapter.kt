@@ -32,8 +32,8 @@ class HistoryAdapter(val viewModel: ViewModelHistory) :
         fun bind(history: History) {
             binding.apply {
                 tanggal.text = history.tanggal
-                biayaParkir.text = history.biayaParkir.toString()
-                durasiParkir.text = history.durasiParkir.toString()
+                biayaParkir.text = "Rp" + history.biayaParkir.toString()
+                durasiParkir.text = history.durasiParkir.toString() + " Jam"
                 jenisKendaraan.text = history.jenisKendaraan
 
                 buttonDelete.setOnClickListener {

@@ -21,8 +21,6 @@ import org.d3if3049.mobpro1.parkirku.databinding.FragmentMainBinding
 import org.d3if3049.mobpro1.parkirku.factory.ViewModelFactory
 import org.d3if3049.mobpro1.parkirku.model.History
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
 
@@ -72,33 +70,6 @@ class MainFragment : Fragment() {
 
     }
 
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        selectedUnitLayout = binding.selectType
-//        selectedUnitText = binding.textSelect
-//        selectedUnit = ""
-//
-//        selectedUnitLayout.setOnClickListener {
-//            showAlertDialog()
-//        }
-//
-//        binding.buttonHitungBiaya.setOnClickListener {
-//            hitungParkir()
-//        }
-//
-//        binding.imageViewInfoApp.setOnClickListener {
-//            // ganti intent ke info fragment. jangan ke activity
-//            startActivity(
-//                Intent(this, InfoActivity::class.java)
-//            )
-//        }
-//
-//    }
-
     private fun hitungParkir() {
         val editInput = binding.editInput.text.toString()
 
@@ -112,15 +83,15 @@ class MainFragment : Fragment() {
 
             if (selectedUnit == "Motor") {
                 hasil = input * 2000
-                binding.textResult.text = "Rp $hasil"
+                binding.textResult.text = "Rp$hasil"
                 binding.textResultType.text = "Total Biaya Parkir Motor Anda Adalah:"
             } else {
                 hasil = input * 5000
-                binding.textResult.text = "Rp $hasil"
+                binding.textResult.text = "Rp$hasil"
                 binding.textResultType.text = "Total Biaya Parkir Mobil Anda Adalah:"
             }
 
-            val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val sdf = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
             val date = sdf.format(Date())
 
             val history = History(generateId(), selectedUnit, editInput.toInt(), hasil, date, true)
