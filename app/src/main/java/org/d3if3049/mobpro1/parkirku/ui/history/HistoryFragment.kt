@@ -111,7 +111,7 @@ class HistoryFragment : Fragment() {
 
         viewModel.getAllHistory().observe(viewLifecycleOwner) { list ->
             if (list == null || list.isEmpty()) {
-                Log.d("HistoryFragment", "List is null or empty")
+                Log.d("HistoryFragment", "List Database kosong")
                 binding.errorText.visibility = View.VISIBLE
                 myAdapter.submitList(list)
             } else {

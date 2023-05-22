@@ -81,6 +81,7 @@
         android:paddingEnd="8dp"
         android:textAlignment="center"
         android:textColorHint="@color/red_500"
+        android:textColor="@color/red_500"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
