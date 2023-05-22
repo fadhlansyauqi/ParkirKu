@@ -86,7 +86,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectType" />
+        app:layout_constraintTop_toBottomOf="@+id/selectType"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/textResult"
@@ -134,6 +135,7 @@
         android:id="@+id/imageViewInfoApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/iconInfoDescription"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -144,6 +146,7 @@
         android:id="@+id/imageViewHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/iconHistoryDescription"
         android:layout_marginTop="8dp"
         android:src="@drawable/baseline_history_24"
         app:layout_constraintEnd_toStartOf="@+id/imageViewInfoApp"

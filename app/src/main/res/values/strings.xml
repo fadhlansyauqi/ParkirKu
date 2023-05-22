@@ -21,4 +21,15 @@
     <string name="konfirmasi_hapus">Apakah anda yakin ingin menghapus?</string>
     <string name="hapus">Hapus</string>
     <string name="batal">Batal</string>
+    <string name="iconInfoDescription">Icon Info yang jika diklik akan mengarahkan ke fragment info app</string>
+    <string name="iconHistoryDescription">Icon history yg jika di klik akan mengarahkan ke history parkir</string>
+    <string name="iconInstagramDescription">Icon Instagram</string>
+    <string name="iconGithubDescription">Icon Github</string>
+    <string name="iconLinkedInDescription">Icon LinkedIn</string>
+    <string name="iconBackButtonInfoDescription">Icon Back Button Fragment Info</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="jenisKendaraan">Jenis Kendaraan</string>
+    <string name="durasiParkir">Durasi Parkir</string>
+    <string name="biayaParkir">Biaya Parkir</string>
+    <string name="iconDeleteHistoryDescription">Icon yang jika diklik akan menghapus data history</string>
 </resources>

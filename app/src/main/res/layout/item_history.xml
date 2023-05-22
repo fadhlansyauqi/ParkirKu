@@ -12,7 +12,7 @@
         android:id="@+id/tanggal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tanggal"
+        android:text="@string/tanggal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -20,7 +20,7 @@
         android:id="@+id/jenisKendaraan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jenis Kendaraan"
+        android:text="@string/jenisKendaraan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tanggal"
         android:layout_marginTop="8dp"/>
@@ -29,7 +29,7 @@
         android:id="@+id/durasiParkir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Durasi Parkir"
+        android:text="@string/durasiParkir"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/jenisKendaraan"
         android:layout_marginTop="8dp"/>
@@ -38,7 +38,7 @@
         android:id="@+id/biayaParkir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Biaya Parkir"
+        android:text="@string/biayaParkir"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/durasiParkir"
         android:layout_marginTop="8dp"/>
@@ -47,6 +47,7 @@
         android:id="@+id/buttonDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/iconDeleteHistoryDescription"
         android:src="@drawable/baseline_delete_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
