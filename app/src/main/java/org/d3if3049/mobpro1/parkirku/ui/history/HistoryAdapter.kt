@@ -1,23 +1,13 @@
 package org.d3if3049.mobpro1.parkirku.ui.history
 
-import android.content.Context
-import android.provider.Settings.Global.getString
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import org.d3if3049.mobpro1.parkirku.R
 import org.d3if3049.mobpro1.parkirku.databinding.ItemHistoryBinding
 import org.d3if3049.mobpro1.parkirku.model.History
-import kotlin.coroutines.coroutineContext
 
 class HistoryAdapter(val viewModel: ViewModelHistory) :
     ListAdapter<History, HistoryAdapter.ViewHolder>(
@@ -31,7 +21,7 @@ class HistoryAdapter(val viewModel: ViewModelHistory) :
             }
 
             override fun areContentsTheSame(oldItem: History, newItem: History): Boolean {
-                return oldItem == newItem
+                return oldItem == newItem && oldItem.isHistory == newItem.isHistory
             }
 
         }
@@ -47,12 +37,26 @@ class HistoryAdapter(val viewModel: ViewModelHistory) :
                 jenisKendaraan.text = history.jenisKendaraan
 
                 buttonDelete.setOnClickListener {
-                    if (history.isHistory) {
-                        history.isHistory = false
-                        CoroutineScope(Dispatchers.IO).launch {
-                            viewModel.deleteHistory(history)
+                    val builder = AlertDialog.Builder(it.context)
+
+                    builder.apply {
+                        setTitle("Konfirmasi Hapus Data")
+                        setMessage("Yakin ingin menghapus histori ini?")
+                        setPositiveButton("Iya") { dialog, _ ->
+                            if (history.isHistory) {
+                                history.isHistory = false
+                                viewModel.deleteHistory(history)
+                                notifyDataSetChanged()
+                            }
+                            dialog.dismiss()
+                        }
+                        setNegativeButton("Batal") { dialog, _ ->
+                            dialog.dismiss()
                         }
                     }
+
+                    val dialog = builder.create()
+                    dialog.show()
                 }
             }
         }
