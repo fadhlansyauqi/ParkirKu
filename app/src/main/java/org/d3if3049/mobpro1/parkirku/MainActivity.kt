@@ -1,14 +1,13 @@
 package org.d3if3049.mobpro1.parkirku
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
 import org.d3if3049.mobpro1.parkirku.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
