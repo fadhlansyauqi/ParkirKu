@@ -8,83 +8,90 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import org.d3if3049.mobpro1.parkirku.databinding.ActivityMainBinding
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+//import org.d3if3049.mobpro1.parkirku.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var navController: NavController
 
     private lateinit var selectedUnitLayout: LinearLayout
     private lateinit var selectedUnitText: TextView
     private lateinit var selectedUnit: String
-    private lateinit var binding: ActivityMainBinding
+//    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_main)
 
-        selectedUnitLayout = binding.selectType
-        selectedUnitText = binding.textSelect
+        navController = findNavController(R.id.myNavHostFragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+
+//        selectedUnitLayout = binding.selectType
+//        selectedUnitText = binding.textSelect
 
 //        val resultTypeText = binding.textResultType
 
 
 
-        selectedUnit = ""
+//        selectedUnit = ""
+//
+//        selectedUnitLayout.setOnClickListener {
+//            showAlertDialog()
+//        }
+//
+//
+////        binding.buttonHitungBiaya.setOnClickListener { hitungParkir() }
+//    }
 
-        selectedUnitLayout.setOnClickListener {
-            showAlertDialog()
-        }
+//    private fun hitungParkir(){
+//        val editInput = binding.editInput.text.toString()
+//
+//            if (TextUtils.isEmpty(editInput)) {
+//                Toast.makeText(this, R.string.alertInputKosong, Toast.LENGTH_LONG ).show()
+//                return
+//            }
+//            if (editInput.isNotEmpty()) {
+//                val input = editInput.toInt()
+//
+//                if (selectedUnit == "Motor") {
+//                    val hasil = input * 2000
+//                    binding.textResult.text = "Rp $hasil"
+//                    binding.textResultType.text = "Total Biaya Parkir Motor Anda Adalah:"
+//                } else {
+//                    val hasil = input * 5000
+//                    binding.textResult.text = "Rp $hasil"
+//                    binding.textResultType.text = "Total Biaya Parkir Mobil Anda Adalah:"
+//                }
+//
+//                Toast.makeText(applicationContext, "Biaya Parkir Ditampilkan", Toast.LENGTH_SHORT).show()
+//            }
 
 
-        binding.buttonHitungBiaya.setOnClickListener { hitungParkir() }
+
     }
-
-    private fun hitungParkir(){
-        val editInput = binding.editInput.text.toString()
-
-            if (TextUtils.isEmpty(editInput)) {
-                Toast.makeText(this, R.string.alertInputKosong, Toast.LENGTH_LONG ).show()
-                return
-            }
-            if (editInput.isNotEmpty()) {
-                val input = editInput.toInt()
-
-                if (selectedUnit == "Motor") {
-                    val hasil = input * 2000
-                    binding.textResult.text = "Rp $hasil"
-                    binding.textResultType.text = "Total Biaya Parkir Motor Anda Adalah:"
-                } else {
-                    val hasil = input * 5000
-                    binding.textResult.text = "Rp $hasil"
-                    binding.textResultType.text = "Total Biaya Parkir Mobil Anda Adalah:"
-                }
-
-                Toast.makeText(applicationContext, "Biaya Parkir Ditampilkan", Toast.LENGTH_SHORT).show()
-            }
-
-
-
-    }
-    private fun showAlertDialog() {
-        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
-        alertDialog.setTitle("Pilih Jenis Kendaraan")
-        val items = arrayOf("Motor", "Mobil")
-        val checkedItem = -1
-
-        alertDialog.setSingleChoiceItems(items, checkedItem
-        ) { _, which ->
-            selectedUnit = items[which]
-            selectedUnitText.text = selectedUnit
-            binding.editInput.isVisible = true
-        }
-
-        alertDialog.setPositiveButton(android.R.string.ok
-        ) { dialog, _ ->
-            dialog.dismiss()
-        }
-
-        val alert: AlertDialog = alertDialog.create()
-        alert.setCanceledOnTouchOutside(false)
-        alert.show()
-    }
+//    private fun showAlertDialog() {
+//        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
+//        alertDialog.setTitle("Pilih Jenis Kendaraan")
+//        val items = arrayOf("Motor", "Mobil")
+//        val checkedItem = -1
+//
+//        alertDialog.setSingleChoiceItems(items, checkedItem
+//        ) { _, which ->
+//            selectedUnit = items[which]
+//            selectedUnitText.text = selectedUnit
+//            binding.editInput.isVisible = true
+//        }
+//
+//        alertDialog.setPositiveButton(android.R.string.ok
+//        ) { dialog, _ ->
+//            dialog.dismiss()
+//        }
+//
+//        val alert: AlertDialog = alertDialog.create()
+//        alert.setCanceledOnTouchOutside(false)
+//        alert.show()
+//    }
 }
