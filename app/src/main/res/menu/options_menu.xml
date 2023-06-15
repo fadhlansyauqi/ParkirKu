@@ -2,6 +2,12 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:title="@string/biayaParkir"
+        android:id="@+id/action_biaya_parkir"
+        android:icon="@drawable/baseline_local_parking"
+        app:showAsAction="always"
+        />
     <item android:id="@+id/menu_about"
         android:title="@string/tentang_aplikasi"
         app:showAsAction="never" />

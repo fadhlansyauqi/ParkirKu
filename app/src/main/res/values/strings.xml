@@ -31,5 +31,9 @@
     <string name="iconInstagramDescription">iconIG</string>
     <string name="iconGithubDescription">iconGITHUB</string>
     <string name="iconLinkedInDescription">iconLinkedIn</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="parkirMotor">Biaya Parkir Motor</string>
+    <string name="parkirMobil">Biaya Parkir Mobil</string>
+    <string name="biayaParkir">Biaya Parkir di berbagai tempat</string>
 
 </resources>

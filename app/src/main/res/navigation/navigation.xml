@@ -17,7 +17,8 @@
             android:id="@+id/action_fragmentMain_to_historiFragment"
             app:destination="@id/historiFragment" />
         <action
-            android:id="@+id/action_fragmentMain_to_gameFragment"/>
+            android:id="@+id/action_fragmentMain_to_biayaParkirFragment"
+            app:destination="@id/biayaParkirFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -29,6 +30,11 @@
         android:name="org.d3if3049.mobpro1.parkirku.ui.histori.HistoriFragment"
         android:label="HistoriFragment"
         tools:layout="@layout/fragment_histori"/>
+    <fragment
+        android:id="@+id/biayaParkirFragment"
+        android:name="org.d3if3049.mobpro1.parkirku.ui.biayaparkir.BiayaParkirFragment"
+        android:label="BiayaParkirFragment"
+        tools:layout="@layout/fragment_biaya_parkir"/>
 
 
 </navigation>
