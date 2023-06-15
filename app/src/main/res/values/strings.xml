@@ -2,7 +2,7 @@
     <string name="app_name">ParkirKu</string>
     <string name="parkirJudul">ParkirKu</string>
     <string name="jam">Masukkan Total Jam</string>
-    <string name="hitung">Hitung</string>
+    <string name="hitung">Hitung Biaya</string>
     <string name="jam_invalid">Jam Tidak Boleh Kosong</string>
     <string name="bayar">Total Yang harus Anda Bayarkan Adalah : Rp.</string>
     <string-array name="planets_array">
