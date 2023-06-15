@@ -1,4 +1,4 @@
-package org.d3if3049.ParkirKu.ui.about
+package org.d3if3049.mobpro1.parkirku.ui.about
 
 import android.content.Intent
 import android.net.Uri

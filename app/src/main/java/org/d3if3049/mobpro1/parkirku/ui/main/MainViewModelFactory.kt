@@ -1,8 +1,8 @@
-package org.d3if3049.ParkirKu.ui.main
+package org.d3if3049.mobpro1.parkirku.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import org.d3if3049.ParkirKu.db.ParkirDao
+import org.d3if3049.mobpro1.parkirku.db.ParkirDao
 
 class MainViewModelFactory(private val db: ParkirDao): ViewModelProvider.Factory{
     @Suppress("unchecked_cast")

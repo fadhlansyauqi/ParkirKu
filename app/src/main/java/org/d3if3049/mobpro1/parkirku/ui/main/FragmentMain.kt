@@ -1,4 +1,4 @@
-package org.d3if3049.ParkirKu.ui.main
+package org.d3if3049.mobpro1.parkirku.ui.main
 
 
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import org.d3if3049.ParkirKu.R
 import org.d3if3049.ParkirKu.databinding.FragmentMainBinding
-import org.d3if3049.ParkirKu.db.ParkirDb
-import org.d3if3049.ParkirKu.model.HasilHitung
+import org.d3if3049.mobpro1.parkirku.db.ParkirDb
+import org.d3if3049.mobpro1.parkirku.model.HasilHitung
 
 
 class FragmentMain : Fragment() {

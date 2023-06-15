@@ -1,4 +1,4 @@
-package org.d3if3049.ParkirKu.ui.histori
+package org.d3if3049.mobpro1.parkirku.ui.histori
 
 import android.content.Context
 import android.os.Bundle
@@ -14,7 +14,8 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.d3if3049.ParkirKu.R
 import org.d3if3049.ParkirKu.databinding.FragmentHistoriBinding
-import org.d3if3049.ParkirKu.db.ParkirDb
+
+import org.d3if3049.mobpro1.parkirku.db.ParkirDb
 
 class HistoriFragment : Fragment() {
     private lateinit var binding: FragmentHistoriBinding

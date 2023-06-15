@@ -1,4 +1,4 @@
-package org.d3if3049.ParkirKu.ui.histori
+package org.d3if3049.mobpro1.parkirku.ui.histori
 
 import android.content.Context
 import android.icu.text.SimpleDateFormat
@@ -14,9 +14,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.d3if3049.ParkirKu.R
 import org.d3if3049.ParkirKu.databinding.ItemHistoriBinding
-import org.d3if3049.ParkirKu.db.ParkirDb
-import org.d3if3049.ParkirKu.db.ParkirEntity
-import org.d3if3049.ParkirKu.model.hitungPemakaian
+import org.d3if3049.mobpro1.parkirku.db.ParkirDb
+import org.d3if3049.mobpro1.parkirku.db.ParkirEntity
+import org.d3if3049.mobpro1.parkirku.model.hitungPemakaian
 import java.util.*
 
 class HistoriAdapter :

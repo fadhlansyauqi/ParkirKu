@@ -1,9 +1,10 @@
-package org.d3if3049.ParkirKu
+package org.d3if3049.mobpro1.parkirku
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import org.d3if3049.ParkirKu.R
 
 class SplashActivity : AppCompatActivity() {
     private val SPLASH_TIME_OUT: Long = 3000

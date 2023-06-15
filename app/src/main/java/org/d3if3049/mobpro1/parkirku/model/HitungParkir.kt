@@ -1,7 +1,7 @@
-package org.d3if3049.ParkirKu.model
+package org.d3if3049.mobpro1.parkirku.model
 
 
-import org.d3if3049.ParkirKu.db.ParkirEntity
+import org.d3if3049.mobpro1.parkirku.db.ParkirEntity
 
 
 fun ParkirEntity.hitungPemakaian(): HasilHitung {

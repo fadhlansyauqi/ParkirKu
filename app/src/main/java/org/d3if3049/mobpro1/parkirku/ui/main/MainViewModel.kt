@@ -1,4 +1,4 @@
-package org.d3if3049.ParkirKu.ui.main
+package org.d3if3049.mobpro1.parkirku.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,10 +7,10 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.d3if3049.ParkirKu.db.ParkirDao
-import org.d3if3049.ParkirKu.db.ParkirEntity
-import org.d3if3049.ParkirKu.model.HasilHitung
-import org.d3if3049.ParkirKu.model.Parkir
+import org.d3if3049.mobpro1.parkirku.db.ParkirDao
+import org.d3if3049.mobpro1.parkirku.db.ParkirEntity
+import org.d3if3049.mobpro1.parkirku.model.HasilHitung
+import org.d3if3049.mobpro1.parkirku.model.Parkir
 
 class MainViewModel(private val db: ParkirDao): ViewModel() {
     private val hasilHitung = MutableLiveData<HasilHitung>()

@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "parkir")
 data class ParkirEntity(
-        @PrimaryKey(autoGenerate = true)
-        var id: Long = 0L,
-        var tanggal: Long = System.currentTimeMillis(),
-        var jam: Int,
-        var jenis: String
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0L,
+    var tanggal: Long = System.currentTimeMillis(),
+    var jam: Int,
+    var tipe: String
 )

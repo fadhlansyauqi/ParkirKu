@@ -6,11 +6,16 @@ import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
-interface ParkirDao {
-
+interface ParkirDao{
     @Insert
-    fun insert(parkir: ParkirEntity)
+    fun insert(warnet: ParkirEntity)
 
     @Query("SELECT * FROM parkir ORDER BY id DESC")
-    fun getLastParkir(): LiveData<List<ParkirEntity?>>
+    fun getLastWarnet(): LiveData<List<ParkirEntity?>>
+
+    @Query("DELETE FROM parkir")
+    fun clearData()
+
+    @Query("DELETE FROM parkir WHERE id = :id")
+    fun deleteHistory(id: Long)
 }

@@ -13,20 +13,22 @@ abstract class ParkirDb : RoomDatabase(){
     companion object{
 
         @Volatile
-        private var INSTANCE : ParkirDb? = null
+        private var INSTANCE: ParkirDb? = null
 
-        fun getInstance(context: Context): ParkirDb{
+        fun getInstance(context: Context): ParkirDb {
             synchronized(this){
                 var instance = INSTANCE
 
                 if (instance == null){
+
                     instance = Room.databaseBuilder(
-                            context.applicationContext,
-                            ParkirDb::class.java,
-                            "Parkir.db"
+                        context.applicationContext,
+                        ParkirDb::class.java,
+                        "Parkir.db"
                     )
-                            .fallbackToDestructiveMigration()
-                            .build()
+                        .fallbackToDestructiveMigration()
+                        .build()
+                    INSTANCE = instance
                 }
                 return instance
             }

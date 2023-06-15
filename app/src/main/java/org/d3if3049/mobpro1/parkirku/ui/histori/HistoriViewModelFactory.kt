@@ -1,8 +1,8 @@
-package org.d3if3049.ParkirKu.ui.histori
+package org.d3if3049.mobpro1.parkirku.ui.histori
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import org.d3if3049.ParkirKu.db.ParkirDao
+import org.d3if3049.mobpro1.parkirku.db.ParkirDao
 
 class HistoriViewModelFactory(
     private val db: ParkirDao
