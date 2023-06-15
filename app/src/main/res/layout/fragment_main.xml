@@ -70,6 +70,7 @@
         android:background="@drawable/rounded_stroke"
         android:fontFamily="@font/raleway_bold"
         android:text="@string/hitung"
+        back
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

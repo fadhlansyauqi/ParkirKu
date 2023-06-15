@@ -33,6 +33,11 @@ class FragmentMain : Fragment() {
                 R.id.action_fragmentMain_to_historiFragment)
                 return true
             }
+            R.id.action_biaya_parkir -> {
+                findNavController().navigate(
+                    R.id.action_fragmentMain_to_biayaParkirFragment)
+                return true
+            }
         R.id.menu_about -> {
             findNavController().navigate(
                 R.id.action_fragmentMain_to_aboutFragment)

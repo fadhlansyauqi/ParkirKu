@@ -23,17 +23,17 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="org.d3if3049.mobpro1.parkirku.ui.about.AboutFragment"
-        android:label="AboutFragment"
+        android:label="About ParkirKu"
         tools:layout="@layout/fragment_about"/>
     <fragment
         android:id="@+id/historiFragment"
         android:name="org.d3if3049.mobpro1.parkirku.ui.histori.HistoriFragment"
-        android:label="HistoriFragment"
+        android:label="Histori Parkir"
         tools:layout="@layout/fragment_histori"/>
     <fragment
         android:id="@+id/biayaParkirFragment"
         android:name="org.d3if3049.mobpro1.parkirku.ui.biayaparkir.BiayaParkirFragment"
-        android:label="BiayaParkirFragment"
+        android:label="Lokasi dan Biaya Parkir"
         tools:layout="@layout/fragment_biaya_parkir"/>
 
 
