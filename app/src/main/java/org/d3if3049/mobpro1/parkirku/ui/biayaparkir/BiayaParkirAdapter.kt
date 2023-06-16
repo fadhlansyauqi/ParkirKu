@@ -3,6 +3,7 @@ package org.d3if3049.mobpro1.parkirku.ui.biayaparkir
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import org.d3if3049.ParkirKu.R
 import org.d3if3049.ParkirKu.databinding.ItemBiayaParkirBinding
 import org.d3if3049.mobpro1.parkirku.model.BiayaParkir
 
@@ -16,7 +17,8 @@ class BiayaParkirAdapter(private val data: List<BiayaParkir>) :
             lokasiTextView.text = biayaParkir.lokasi
             parkirMotorTextView.text = biayaParkir.parkirmotor
             parkirMobilTextView.text = biayaParkir.parkirmobil
-            logoImageView.setImageResource(biayaParkir.gambarId)
+            logoImageView.setImageResource(R.drawable.logo_bec)
+
 
         }
     }

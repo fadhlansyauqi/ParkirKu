@@ -31,7 +31,7 @@ class BiayaParkirFragment:Fragment() {
             addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
             adapter = BiayaParkirAdapter(getBiayaParkir())
             setHasFixedSize(true)
-            Log.d("fragment biaya paprkir", "rv biaya parkir muncul")
+            Log.d("fragment biaya parkir", "rv biaya parkir muncul")
         }
 
     }
