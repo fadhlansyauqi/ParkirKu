@@ -3,9 +3,11 @@ package org.d3if3049.mobpro1.parkirku.ui.biayaparkir
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import org.d3if3049.ParkirKu.R
 import org.d3if3049.ParkirKu.databinding.ItemBiayaParkirBinding
 import org.d3if3049.mobpro1.parkirku.model.BiayaParkir
+import org.d3if3049.mobpro1.parkirku.network.BiayaParkirApi
 
 class BiayaParkirAdapter(private val data: List<BiayaParkir>) :
     RecyclerView.Adapter<BiayaParkirAdapter.ViewHolder>() {
@@ -17,8 +19,10 @@ class BiayaParkirAdapter(private val data: List<BiayaParkir>) :
             lokasiTextView.text = biayaParkir.lokasi
             parkirMotorTextView.text = biayaParkir.parkirmotor
             parkirMobilTextView.text = biayaParkir.parkirmobil
-            logoImageView.setImageResource(R.drawable.logo_bec)
-
+            Glide.with(logoImageView.context)
+                .load(BiayaParkirApi.getBiayaParkirUrl(biayaParkir.gambarId))
+                .error(R.drawable.baseline_broken_image_24)
+                .into(logoImageView)
 
         }
     }

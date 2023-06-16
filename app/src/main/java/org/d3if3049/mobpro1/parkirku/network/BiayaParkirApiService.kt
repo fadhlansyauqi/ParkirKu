@@ -28,4 +28,9 @@ import retrofit2.http.GET
         val service: BiayaParkirApiService by lazy {
             retrofit.create(BiayaParkirApiService::class.java)
         }
+
+        fun getBiayaParkirUrl(gambarId: String): String {
+            return "$BASE_URL$gambarId.png"
+        }
+
     }

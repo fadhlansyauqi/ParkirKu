@@ -18,22 +18,6 @@ import org.d3if3049.mobpro1.parkirku.network.BiayaParkirApi
 class MainViewModel(private val db: ParkirDao): ViewModel() {
     private val hasilHitung = MutableLiveData<HasilHitung>()
 
-    private val data = MutableLiveData<List<BiayaParkir>>()
-    init {
-        retrieveData()
-    }
-    private fun retrieveData() {
-        viewModelScope.launch (Dispatchers.IO) {
-            try {
-                val result = BiayaParkirApi.service.getBiayaParkir()
-                Log.d("MainViewModel", "Success: $result")
-                data.postValue(BiayaParkirApi.service.getBiayaParkir())
-            } catch (e: Exception) {
-                Log.d("MainViewModel", "Failure: ${e.message}")
-            }
-        }
-    }
-
     fun tampungWarnet(jam: Int, tipe: String){
         val hitungWarnet = Parkir (
             jam = jam,
