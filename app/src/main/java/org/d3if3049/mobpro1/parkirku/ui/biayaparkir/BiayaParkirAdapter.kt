@@ -9,9 +9,14 @@ import org.d3if3049.ParkirKu.databinding.ItemBiayaParkirBinding
 import org.d3if3049.mobpro1.parkirku.model.BiayaParkir
 import org.d3if3049.mobpro1.parkirku.network.BiayaParkirApi
 
-class BiayaParkirAdapter(private val data: List<BiayaParkir>) :
-    RecyclerView.Adapter<BiayaParkirAdapter.ViewHolder>() {
+class BiayaParkirAdapter : RecyclerView.Adapter<BiayaParkirAdapter.ViewHolder>() {
 
+    private val data = mutableListOf<BiayaParkir>()
+    fun updateData(newaData: List<BiayaParkir>){
+        data.clear()
+        data.addAll(newaData)
+        notifyDataSetChanged()
+    }
     class ViewHolder(private val binding: ItemBiayaParkirBinding) :
         RecyclerView.ViewHolder(binding.root) {
 

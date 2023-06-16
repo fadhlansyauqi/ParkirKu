@@ -35,5 +35,7 @@
     <string name="parkirMotor">Biaya Parkir Motor</string>
     <string name="parkirMobil">Biaya Parkir Mobil</string>
     <string name="biayaParkir">Biaya Parkir di berbagai tempat</string>
+    <string name="koneksi_error">Koneksi Error</string>
+
 
 </resources>

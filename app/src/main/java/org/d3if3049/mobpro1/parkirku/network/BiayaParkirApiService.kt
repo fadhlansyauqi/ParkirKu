@@ -34,3 +34,5 @@ import retrofit2.http.GET
         }
 
     }
+
+enum class ApiStatus { LOADING, SUCCES, FAILED}
