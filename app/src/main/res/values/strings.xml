@@ -36,6 +36,8 @@
     <string name="parkirMobil">Biaya Parkir Mobil</string>
     <string name="biayaParkir">Biaya Parkir di berbagai tempat</string>
     <string name="koneksi_error">Koneksi Error</string>
-
-
+    <string name="channel_name">Updater</string>
+    <string name="channel_desc">Update data biaya parkir otomatis</string>
+    <string name="notif_title">Ada update biaya parkir baru!</string>
+    <string name="notif_text">Cek sekarang yuk :)</string>
 </resources>
