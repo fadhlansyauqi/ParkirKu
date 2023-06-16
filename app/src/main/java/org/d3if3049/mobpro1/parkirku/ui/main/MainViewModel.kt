@@ -1,5 +1,6 @@
 package org.d3if3049.mobpro1.parkirku.ui.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,9 +12,24 @@ import org.d3if3049.mobpro1.parkirku.db.ParkirDao
 import org.d3if3049.mobpro1.parkirku.db.ParkirEntity
 import org.d3if3049.mobpro1.parkirku.model.HasilHitung
 import org.d3if3049.mobpro1.parkirku.model.Parkir
+import org.d3if3049.mobpro1.parkirku.network.BiayaParkirApi
 
 class MainViewModel(private val db: ParkirDao): ViewModel() {
     private val hasilHitung = MutableLiveData<HasilHitung>()
+
+    init {
+        retrieveData()
+    }
+    private fun retrieveData() {
+        viewModelScope.launch (Dispatchers.IO) {
+            try {
+                val result = BiayaParkirApi.service.getBiayaParkir()
+                Log.d("MainViewModel", "Success: $result")
+            } catch (e: Exception) {
+                Log.d("MainViewModel", "Failure: ${e.message}")
+            }
+        }
+    }
 
     fun tampungWarnet(jam: Int, tipe: String){
         val hitungWarnet = Parkir (
