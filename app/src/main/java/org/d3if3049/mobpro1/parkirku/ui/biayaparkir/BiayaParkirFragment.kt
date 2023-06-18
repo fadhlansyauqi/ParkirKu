@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +15,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import org.d3if3049.ParkirKu.databinding.FragmentBiayaParkirBinding
 import org.d3if3049.mobpro1.parkirku.MainActivity
-import org.d3if3049.mobpro1.parkirku.model.BiayaParkirObject.getBiayaParkir
 import org.d3if3049.mobpro1.parkirku.network.ApiStatus
 
 class BiayaParkirFragment:Fragment() {
@@ -32,7 +30,7 @@ class BiayaParkirFragment:Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentBiayaParkirBinding.inflate(layoutInflater, container, false)
         myAdapter = BiayaParkirAdapter()
         with(binding.recyclerView){

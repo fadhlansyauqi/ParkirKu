@@ -22,10 +22,12 @@ class FragmentMain : Fragment() {
         val factory = MainViewModelFactory(db.dao)
         ViewModelProvider(this,factory)[MainViewModel::class.java]
     }
+    @Deprecated("")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.options_menu, menu)
     }
+    @Deprecated("")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.menu_histori -> {
@@ -76,7 +78,7 @@ class FragmentMain : Fragment() {
         Toast.makeText(context, "Biaya Parkir Ditampilkan", Toast.LENGTH_SHORT).show()
     }
 
-    fun showResult(result: HasilHitung?){
+    private fun showResult(result: HasilHitung?){
         if (result == null) return
         binding.bayarTxtview.text = getString(R.string.harga_x, result.harga)
 

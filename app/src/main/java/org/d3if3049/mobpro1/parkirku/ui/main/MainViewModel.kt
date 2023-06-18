@@ -1,6 +1,5 @@
 package org.d3if3049.mobpro1.parkirku.ui.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,10 +9,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.d3if3049.mobpro1.parkirku.db.ParkirDao
 import org.d3if3049.mobpro1.parkirku.db.ParkirEntity
-import org.d3if3049.mobpro1.parkirku.model.BiayaParkir
 import org.d3if3049.mobpro1.parkirku.model.HasilHitung
 import org.d3if3049.mobpro1.parkirku.model.Parkir
-import org.d3if3049.mobpro1.parkirku.network.BiayaParkirApi
 
 class MainViewModel(private val db: ParkirDao): ViewModel() {
     private val hasilHitung = MutableLiveData<HasilHitung>()
@@ -25,7 +22,7 @@ class MainViewModel(private val db: ParkirDao): ViewModel() {
         hasilHitung.value = hitungWarnet.hitungPemakaian()
     }
 
-    fun Parkir.hitungPemakaian(): HasilHitung {
+    private fun Parkir.hitungPemakaian(): HasilHitung {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 val dataWarnet = ParkirEntity(

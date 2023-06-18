@@ -20,7 +20,6 @@ import org.d3if3049.mobpro1.parkirku.db.ParkirDb
 class HistoriFragment : Fragment() {
     private lateinit var binding: FragmentHistoriBinding
     private lateinit var myAdapter: HistoriAdapter
-    private lateinit var factory: HistoriViewModelFactory
     private lateinit var dataStoreManager: DataStoreManager
 
     companion object{
@@ -50,11 +49,13 @@ class HistoriFragment : Fragment() {
         return binding.root
     }
 
+    @Deprecated("")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    @Deprecated("")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_switch_layout -> {
@@ -106,11 +107,11 @@ class HistoriFragment : Fragment() {
             }
         }
 
-        viewModel.data.observe(viewLifecycleOwner, {
+        viewModel.data.observe(viewLifecycleOwner) {
             binding.emptyView.visibility = if (it.isEmpty())
                 View.VISIBLE else View.GONE
             myAdapter.submitList(it)
-        })
+        }
     }
 
     override fun onStop() {
@@ -122,7 +123,7 @@ class HistoriFragment : Fragment() {
         }
     }
 
-    fun getCurrentLayoutManager(): String {
+    private fun getCurrentLayoutManager(): String {
         val layoutManager = binding.recyclerView.layoutManager
         return if (layoutManager is GridLayoutManager) {
             "grid"
@@ -131,7 +132,7 @@ class HistoriFragment : Fragment() {
         }
     }
 
-    fun updateLayoutManager(layout: String) {
+    private fun updateLayoutManager(layout: String) {
         binding.recyclerView.apply {
             layoutManager = if (layout == "grid") {
                 GridLayoutManager(context, 2)

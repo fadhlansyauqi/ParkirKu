@@ -65,13 +65,13 @@ androidx.recyclerview.widget.ListAdapter<ParkirEntity, HistoriAdapter.ViewHolder
         }
         private fun hapusData(id: Long, context: Context) {
             val db = ParkirDb.getInstance(context)
-            val WarnetDao = db.dao
+            val parkirDao = db.dao
             MaterialAlertDialogBuilder(context)
                 .setMessage(context.getString(R.string.konfirmasi_hapus))
                 .setPositiveButton(context.getString(R.string.hapus)) { _, _ ->
                     CoroutineScope(Dispatchers.IO).launch {
                         withContext(Dispatchers.IO) {
-                            WarnetDao.deleteHistory(id)
+                            parkirDao.deleteHistory(id)
                         }
                     }
                 }

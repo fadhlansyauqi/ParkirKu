@@ -40,4 +40,5 @@
     <string name="channel_desc">Update data biaya parkir otomatis</string>
     <string name="notif_title">Ada update biaya parkir baru!</string>
     <string name="notif_text">Cek sekarang yuk :)</string>
+    <string name="splashDescription">Splashscreen Parkirku</string>
 </resources>

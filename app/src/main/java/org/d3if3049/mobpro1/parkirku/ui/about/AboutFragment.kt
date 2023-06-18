@@ -18,7 +18,7 @@ private lateinit var binding: FragmentAboutBinding
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 binding = FragmentAboutBinding.inflate(layoutInflater, container, false)
 return binding.root
     }
