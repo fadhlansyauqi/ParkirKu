@@ -9,14 +9,14 @@
         <item>Motor</item>
         <item>Mobil</item>
     </string-array>
-    <string name="harga_x">Total Biaya Parkir Anda Adalah: Rp. %1$d</string>
+    <string name="harga_x">Total Biaya Parkir Anda Adalah \n Rp%1$d</string>
     <string name="user">Username :</string>
     <string name="pass">Password :</string>
     <string name="tentang_aplikasi">Tentang ParkirKu</string>
     <string name="copyright">ParkirKu merupakan aplikasi untuk melakukan pengecekan biaya parkir. Aplikasi ini dibuat untuk memenuhi asesmen mata kuliah mobile programming 1 \n\nDibuat oleh: \n Muhammad Fadhlan Sya\'uqi \n D3 RPLA 4501 \n 6706213049</string>
     <string name="bagikan">Bagikan</string>
     <string name="bagikan_template">%1s\n%2s\n%3$s</string>
-    <string name="belum_ada_data">Belum ada data</string>
+    <string name="belum_ada_data">Yah, Belum ada data :(</string>
     <string name="histori">Histori</string>
     <string name="jam_x">%1$s Jam</string>
     <string name="tipe_x">%1$s</string>

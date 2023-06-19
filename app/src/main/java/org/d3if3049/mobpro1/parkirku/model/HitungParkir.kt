@@ -6,7 +6,7 @@ import org.d3if3049.mobpro1.parkirku.db.ParkirEntity
 
 fun ParkirEntity.hitungPemakaian(): HasilHitung {
     val jam = jam
-    val tipekomputer = if (tipe.equals("Motor", ignoreCase = true)) {
+    val jurusanparkir = if (tipe.equals("Motor", ignoreCase = true)) {
         jam * 2000
     } else if (tipe.equals("Mobil", ignoreCase = true)) {
         jam * 5000
@@ -14,5 +14,5 @@ fun ParkirEntity.hitungPemakaian(): HasilHitung {
         0
     }
 
-    return HasilHitung(jam, tipekomputer)
+    return HasilHitung(jam, jurusanparkir)
 }

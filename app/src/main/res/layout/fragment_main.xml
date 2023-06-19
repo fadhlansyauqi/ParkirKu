@@ -57,6 +57,7 @@
             android:hint="@string/jam"
             android:backgroundTint="@color/white"
             android:textColor="@color/red_500"
+            android:maxLength="10"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,41 +69,29 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:fontFamily="@font/raleway_bold"
-        android:text="@string/hitung"
         android:backgroundTint="@color/white"
+        android:text="@string/hitung"
         android:textColor="@color/red_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jam_hint" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="200dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_hitung" />
-
     <TextView
         android:id="@+id/bayar_txtview"
-        android:layout_width="287dp"
-        android:layout_height="17dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
         android:textColor="@color/red_500"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/btn_hitung"
         tools:text="Bayar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

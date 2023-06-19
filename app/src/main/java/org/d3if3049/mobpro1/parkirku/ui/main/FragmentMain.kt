@@ -60,11 +60,11 @@ class FragmentMain : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.btnHitung.setOnClickListener { hitungWarnet() }
-        viewModel.getUserPassWarnet().observe(requireActivity()) {showResult(it)}
+        binding.btnHitung.setOnClickListener { hitungParkir() }
+        viewModel.getBiayaParkir().observe(requireActivity()) {showResult(it)}
     }
 
-    private fun hitungWarnet() {
+    private fun hitungParkir() {
         val jam = binding.jamInp.text.toString()
 
         if (TextUtils.isEmpty(jam)) {
@@ -73,7 +73,7 @@ class FragmentMain : Fragment() {
         }
         val selectedValue = binding.tipeSpinner.selectedItem.toString()
 
-        viewModel.tampungWarnet(jam.toInt(), selectedValue)
+        viewModel.tampungBiayaParkir(jam.toInt(), selectedValue)
 
         Toast.makeText(context, "Biaya Parkir Ditampilkan", Toast.LENGTH_SHORT).show()
     }
